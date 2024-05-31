@@ -35,22 +35,17 @@
     "volume": 450
   },
   {
-    "id": 10,
-    "name": "Pak melk",
-    "volume": 1000
-  },
-  {
-    "id": 11,
+    "id": 8,
     "name": "Pakje sap",
     "volume": 200
   },
   {
-    "id": 12,
+    "id": 9,
     "name": "Thee pot",
     "volume": 800
   },
   {
-    "id": 13,
+    "id": 10,
     "name": "Thermos",
     "volume": 750
   }
