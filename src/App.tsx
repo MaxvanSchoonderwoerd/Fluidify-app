@@ -40,14 +40,16 @@ function App() {
       <HeaderComponent page="Registratie" />
       <div className="w-full grid grid-cols-2 grid-rows-1 place-items-center">
         <div className="w-full">
-          <h1 className="font-semibold text-4xl mt-4 mb-4">Balans: {totalFluidBalance}ml</h1>
           <div className="grid grid-cols-2 place-items-center">
             {containers.map((container: TContainer) => (
               <FluidContainerComponent key={container.id} id={container.id} name={container.name} volume={container.volume} addFluid={addFluid} removeFluid={removeFluid} />
             ))}
           </div>
         </div>
-        <div className="w-full bg-red-400">druppie de druiper hier</div>
+        <div className="w-full">
+          <h1 className="font-semibold text-4xl mt-4 mb-4">Balans: {totalFluidBalance}ml</h1>
+          <p>druppie de druiper hier</p>
+        </div>
       </div>
     </div>
   );
