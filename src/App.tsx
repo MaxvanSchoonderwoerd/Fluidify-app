@@ -4,6 +4,7 @@ import FluidContainerComponent from "./components/FluidContainerComponent";
 import "./index.css"; // Import your Tailwind CSS here
 import Containers from "./assets/containers.json";
 import HeaderComponent from "./components/HeaderComponent";
+import MascotComponent from "./components/MascotComponent";
 
 type TContainer = {
   id: number;
@@ -47,7 +48,7 @@ function App() {
           </div>
         </div>
         <div className="w-full">
-          <h1 className="font-semibold text-4xl mt-4 mb-4">Balans: {totalFluidBalance}ml</h1>
+          <MascotComponent totalFluidBalance={totalFluidBalance} />
           <p>druppie de druiper hier</p>
         </div>
       </div>
