@@ -12,15 +12,16 @@ type TFluidContainerProps = {
 export default function FluidContainerComponent(props: TFluidContainerProps) {
   const [ammount, setAmmount] = useState<number>(0);
 
-  const handleButtonClicked = (buttonType: string) => {
+  const handleButtonClicked = (buttonType: string, currentAmmount: number) => {
     switch (buttonType) {
       case "minus":
-        props.removeFluid(props.volume);
-        if (ammount >= 1) setAmmount(ammount - 1);
+        if (ammount <= 0) return;
+        props.removeFluid(props.volume * currentAmmount);
+        if (ammount >= currentAmmount) setAmmount(ammount - currentAmmount);
         break;
       case "plus":
-        props.addFluid(props.volume);
-        setAmmount(ammount + 1);
+        props.addFluid(props.volume * currentAmmount);
+        setAmmount(ammount + currentAmmount);
     }
   };
 
@@ -29,12 +30,18 @@ export default function FluidContainerComponent(props: TFluidContainerProps) {
       <p className="font-medium text-white">
         {props.name} ({props.volume}ml)
       </p>
-      <div className="w-1/2 flex flex-row justify-between mt-2 ">
-        <button className="bg-white hover:bg-slate-200 w-8 h-8 rounded-lg font-extrabold text-blue-500" onClick={() => handleButtonClicked("minus")}>
+      <div className="w-full flex flex-row justify-between mt-2 ">
+        <button className="bg-white size-10 text-blue-500" onClick={() => handleButtonClicked("minus", 1)}>
           - 1
         </button>
-        <p className="text-white">{ammount}</p>
-        <button className="bg-white hover:bg-slate-200 w-8 h-8 rounded-lg font-extrabold text-blue-500" onClick={() => handleButtonClicked("plus")}>
+        <button className="bg-white size-10 text-blue-500" onClick={() => handleButtonClicked("minus", 0.5)}>
+          - 0.5
+        </button>
+        <p className="text-white ">{ammount}</p>
+        <button className="bg-white size-10 text-blue-500" onClick={() => handleButtonClicked("plus", 0.5)}>
+          + 0.5
+        </button>
+        <button className="bg-white size-10 text-blue-500" onClick={() => handleButtonClicked("plus", 1)}>
           + 1
         </button>
       </div>
