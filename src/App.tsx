@@ -1,27 +1,49 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
+import FluidContainerComponent from "./components/FluidContainerComponent";
+import "./index.css"; // Import your Tailwind CSS here
+import Containers from "./assets/containers.json";
+import HeaderComponent from "./components/HeaderComponent";
+
+type TContainer = {
+  id: number;
+  name: string;
+  volume: number;
+};
 
 function App() {
-  const [fluidBalance, setFluidBalance] = useState<number>(0);
+  const [containers, setContainers] = useState<TContainer[]>([]);
+  const [totalFluidBalance, setTotalFluidBalance] = useState<number>(0);
 
-  const addFluid = (ammount: number) => {
-    setFluidBalance(fluidBalance + ammount);
+  useEffect(() => {
+    loadContainersJson();
+  }, []);
+
+  const loadContainersJson = () => {
+    setContainers(Containers);
   };
 
-  const removeFluid = (ammount: number) => {
-    if (fluidBalance >= ammount) {
-      setFluidBalance(fluidBalance - ammount);
+  const addFluid = (volume: number) => {
+    setTotalFluidBalance(totalFluidBalance + volume);
+  };
+
+  const removeFluid = (volume: number) => {
+    if (totalFluidBalance >= volume) {
+      setTotalFluidBalance(totalFluidBalance - volume);
     } else {
-      setFluidBalance(0);
+      setTotalFluidBalance(0);
     }
   };
 
   return (
-    <div className="App">
-      <p>Balance: {fluidBalance}ml</p>
-      <p>Blikje (330ml)</p>
-      <button onClick={() => removeFluid(330)}>-</button>
-      <button onClick={() => addFluid(330)}>+</button>
+    <div className="App grid place-items-center">
+      <HeaderComponent page="Registratie" />
+      <h1 className="font-semibold text-4xl mt-4 mb-4">Balans: {totalFluidBalance}ml</h1>
+      <div className="w-[80vw] grid xl:grid-cols-4 sm:grid-cols-2 place-items-center">
+        {containers.map((container: TContainer) => (
+          <FluidContainerComponent key={container.id} id={container.id} name={container.name} volume={container.volume} addFluid={addFluid} removeFluid={removeFluid} />
+        ))}
+      </div>
     </div>
   );
 }
