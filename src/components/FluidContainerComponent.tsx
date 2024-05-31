@@ -31,13 +31,13 @@ export default function FluidContainerComponent(props: TFluidContainerProps) {
         {props.name} ({props.volume}ml)
       </p>
       <div className="w-full flex flex-row justify-between mt-2 ">
-        <button className="bg-white size-10 text-blue-500" onClick={() => handleButtonClicked("minus", 1)}>
+        <button className="bg-white size-10 text-blue-500 disabled:bg-gray-300 disabled:text-gray-500" onClick={() => handleButtonClicked("minus", 1)} disabled={ammount < 1}>
           - 1
         </button>
-        <button className="bg-white size-10 text-blue-500" onClick={() => handleButtonClicked("minus", 0.5)}>
+        <button className="bg-white size-10 text-blue-500 disabled:bg-gray-300 disabled:text-gray-500" onClick={() => handleButtonClicked("minus", 0.5)} disabled={ammount < 0.5}>
           - 0.5
         </button>
-        <p className="text-white ">{ammount}</p>
+        <p className="bg-white size-10 text-blue-500 text-center place-items-center">{ammount}</p>
         <button className="bg-white size-10 text-blue-500" onClick={() => handleButtonClicked("plus", 0.5)}>
           + 0.5
         </button>
