@@ -39,9 +39,9 @@ function App() {
   return (
     <div className="App grid place-items-center">
       <HeaderComponent page="Registratie" />
-      <div className="w-full grid grid-cols-2 grid-rows-1 place-items-center">
+      <div className="w-full grid grid-rows-1 place-items-center sm:grid-cols-1 lg:grid-cols-2">
         <div className="w-full">
-          <div className="grid grid-cols-2 place-items-center">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 place-items-center">
             {containers.map((container: TContainer) => (
               <FluidContainerComponent key={container.id} id={container.id} name={container.name} volume={container.volume} addFluid={addFluid} removeFluid={removeFluid} />
             ))}
