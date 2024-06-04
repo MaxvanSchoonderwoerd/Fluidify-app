@@ -1,6 +1,11 @@
 {
+  "name": "Fluidify",
   "short_name": "Fluidify",
-  "name": "fluidify",
+  "description": "keep track of your fluid balance with the help of druppie the droplet",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0c2074",
+  "theme_color": "#86d2ed",
   "icons": [
     {
       "src": "favicon.ico",
@@ -18,8 +23,14 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#86d2ed",
-  "background_color": "#0c2074"
+  "scope": "/",
+  "orientation": "portrait",
+  "lang": "en-US",
+  "prefer_related_applications": false,
+  "related_applications": [],
+  "categories": ["category"],
+  "serviceworker": {
+    "src": "/service-worker.js",
+    "scope": "/"
+  }
 }
