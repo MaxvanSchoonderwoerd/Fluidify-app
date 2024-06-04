@@ -21,6 +21,10 @@ export default function MascotComponent(props: TMascotComponentProps) {
       if (props.totalFluidBalance >= part * i && props.totalFluidBalance < part * (i + 1)) {
         setMascotImage(image);
       }
+      //shitty fix, please change this
+      if (props.totalFluidBalance >= fluidLimit) {
+        setMascotImage(images[images.length - 1]);
+      }
     });
   };
 
