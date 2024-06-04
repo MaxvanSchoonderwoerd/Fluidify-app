@@ -26,7 +26,15 @@ export default function FluidContainerComponent(props: TFluidContainerProps) {
   };
 
   return (
-    <div className="bg-blue-500 w-64 p-4 m-4 grid place-items-center rounded-lg">
+    <div className="bg-blue-500 w-64 p-4 m-4 grid place-items-center rounded-lg relative">
+      {ammount > 0 ? (
+        <div className="bg-red-600  absolute -right-4 -top-4 size-8 rounded-full text-center flex justify-center items-center">
+          <p className="text-white">{ammount}</p>
+        </div>
+      ) : (
+        ""
+      )}
+
       <p className="font-medium text-white">
         {props.name} ({props.volume}ml)
       </p>
@@ -37,7 +45,7 @@ export default function FluidContainerComponent(props: TFluidContainerProps) {
         <button className="bg-white size-10 text-blue-500 disabled:bg-gray-300 disabled:text-gray-500" onClick={() => handleButtonClicked("minus", 0.5)} disabled={ammount < 0.5}>
           - 0.5
         </button>
-        <p className="bg-white size-10 text-blue-500 text-center place-items-center">{ammount}</p>
+
         <button className="bg-white size-10 text-blue-500" onClick={() => handleButtonClicked("plus", 0.5)}>
           + 0.5
         </button>
