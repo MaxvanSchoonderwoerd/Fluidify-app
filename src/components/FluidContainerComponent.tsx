@@ -41,17 +41,17 @@ export default function FluidContainerComponent(props: TFluidContainerProps) {
 
       {/* buttons for adding or removing fluid volume by selecting how much of the container they drank */}
       <div className="w-full flex flex-row justify-between mt-2 ">
-        <button className="bg-white size-10 text-primary disabled:bg-gray-300 disabled:text-gray-500" onClick={() => handleButtonClicked("minus", 1)} disabled={ammount < 1}>
+        <button className="bg-white size-10  disabled:bg-gray-300 disabled:text-gray-500" onClick={() => handleButtonClicked("minus", 1)} disabled={ammount < 1}>
           - 1
         </button>
-        <button className="bg-white size-10 text-primary disabled:bg-gray-300 disabled:text-gray-500" onClick={() => handleButtonClicked("minus", 0.5)} disabled={ammount < 0.5}>
+        <button className="bg-white size-10  disabled:bg-gray-300 disabled:text-gray-500" onClick={() => handleButtonClicked("minus", 0.5)} disabled={ammount < 0.5}>
           - 0.5
         </button>
 
-        <button className="bg-white size-10 text-primary" onClick={() => handleButtonClicked("plus", 0.5)}>
+        <button className="bg-white size-10 " onClick={() => handleButtonClicked("plus", 0.5)}>
           + 0.5
         </button>
-        <button className="bg-white size-10 text-primary" onClick={() => handleButtonClicked("plus", 1)}>
+        <button className="bg-white size-10 " onClick={() => handleButtonClicked("plus", 1)}>
           + 1
         </button>
       </div>

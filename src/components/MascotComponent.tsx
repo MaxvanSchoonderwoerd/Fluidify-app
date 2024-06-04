@@ -35,7 +35,7 @@ export default function MascotComponent(props: TMascotComponentProps) {
 
   return (
     <>
-      <h1 className="font-semibold text-4xl mt-4 mb-4 text-primary">
+      <h1 className="font-semibold text-4xl mt-4 mb-4">
         Balans: {props.totalFluidBalance}ml / {fluidLimit}ml
       </h1>
       <img src={mascotImage} alt="mascot" />
