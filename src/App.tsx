@@ -38,7 +38,7 @@ function App() {
 
   return (
     <div className="App grid place-items-center">
-      <HeaderComponent page="Registratie" />
+      <HeaderComponent />
       <div className="w-full grid grid-rows-1 place-items-center sm:grid-cols-1 lg:grid-cols-2">
         <div className="w-full">
           <div className="grid sm:grid-cols-1 md:grid-cols-2 place-items-center">
