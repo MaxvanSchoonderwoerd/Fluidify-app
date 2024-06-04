@@ -10,7 +10,7 @@ type TMascotComponentProps = {
 };
 
 export default function MascotComponent(props: TMascotComponentProps) {
-  const [imagePath, setImagePath] = useState<string>();
+  const [mascotImage, setMascotImage] = useState<string>();
 
   const fluidLimit: number = 2000;
 
@@ -19,22 +19,22 @@ export default function MascotComponent(props: TMascotComponentProps) {
 
     switch (true) {
       case props.totalFluidBalance <= 0:
-        setImagePath(image1);
+        setMascotImage(image1);
         break;
       case props.totalFluidBalance >= quartile * 1 && props.totalFluidBalance < quartile * 2:
-        setImagePath(image2);
+        setMascotImage(image2);
         break;
       case props.totalFluidBalance >= quartile * 2 && props.totalFluidBalance < quartile * 3:
-        setImagePath(image3);
+        setMascotImage(image3);
         break;
       case props.totalFluidBalance >= quartile * 3 && props.totalFluidBalance < fluidLimit:
-        setImagePath(image4);
+        setMascotImage(image4);
         break;
       case props.totalFluidBalance >= fluidLimit:
-        setImagePath(image5);
+        setMascotImage(image5);
         break;
       default:
-        setImagePath(image1); // Fallback
+        setMascotImage(image1); // Fallback
         break;
     }
   }, [props.totalFluidBalance, fluidLimit]);
@@ -42,7 +42,7 @@ export default function MascotComponent(props: TMascotComponentProps) {
   return (
     <>
       <h1 className="font-semibold text-4xl mt-4 mb-4">Balans: {props.totalFluidBalance}ml</h1>
-      <img src={imagePath} alt="mascot" />
+      <img src={mascotImage} alt="mascot" />
     </>
   );
 }
