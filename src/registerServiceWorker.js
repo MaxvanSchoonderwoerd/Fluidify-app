@@ -1,3 +1,5 @@
+import { urlBase64ToUint8Array } from "./utils/urlBase64ToUint8Array";
+
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker
     .register("/service-worker.js")
@@ -14,17 +16,6 @@ if ("serviceWorker" in navigator) {
     .catch((error) => {
       console.error("Service Worker registration failed:", error);
     });
-
-  function urlBase64ToUint8Array(base64String) {
-    const padding = "=".repeat((4 - (base64String.length % 4)) % 4);
-    const base64 = (base64String + padding).replace(/-/g, "+").replace(/_/g, "/");
-    const rawData = window.atob(base64);
-    const outputArray = new Uint8Array(rawData.length);
-    for (let i = 0; i < rawData.length; ++i) {
-      outputArray[i] = rawData.charCodeAt(i);
-    }
-    return outputArray;
-  }
 
   function subscribeUserToPush(registration) {
     // Fetch the public key from the server
