@@ -5,6 +5,7 @@ import "./index.css";
 import Containers from "./assets/containers.json";
 import HeaderComponent from "./components/HeaderComponent";
 import MascotComponent from "./components/MascotComponent";
+import ConfettiExplosion from "react-confetti-explosion";
 
 type TContainer = {
   id: number;
@@ -15,10 +16,18 @@ type TContainer = {
 function App() {
   const [containers, setContainers] = useState<TContainer[]>([]);
   const [totalFluidBalance, setTotalFluidBalance] = useState<number>(0);
+  const [fluidLimit, setFluidLimit] = useState<number>(2000);
+  const [isConfettiActive, setIsConfettiActive] = useState(false);
 
   useEffect(() => {
     loadContainersJson();
   }, []);
+
+  useEffect(() => {
+    if (totalFluidBalance >= fluidLimit) {
+      setIsConfettiActive(true);
+    }
+  }, [totalFluidBalance, fluidLimit]);
 
   const loadContainersJson = () => {
     setContainers(Containers);
@@ -48,7 +57,7 @@ function App() {
           </div>
         </div>
         <div className="w-full">
-          <MascotComponent totalFluidBalance={totalFluidBalance} />
+          <MascotComponent totalFluidBalance={totalFluidBalance} fluidLimit={fluidLimit} isConfettiActive={isConfettiActive} />
         </div>
       </div>
     </div>
