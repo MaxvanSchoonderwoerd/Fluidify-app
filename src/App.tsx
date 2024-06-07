@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import FluidContainerComponent from "./components/FluidContainerComponent";
-import "./index.css"; // Import your Tailwind CSS here
+import "./index.css";
 import Containers from "./assets/containers.json";
 import HeaderComponent from "./components/HeaderComponent";
 import MascotComponent from "./components/MascotComponent";
