@@ -49,7 +49,6 @@ function App() {
         </div>
         <div className="w-full">
           <MascotComponent totalFluidBalance={totalFluidBalance} />
-          <p>druppie de druiper hier</p>
         </div>
       </div>
     </div>
