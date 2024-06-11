@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import image1 from "../assets/druppie webp/druppie1.webp";
-import image2 from "../assets/druppie webp/druppie2.webp";
-import image3 from "../assets/druppie webp/druppie3.webp";
-import image4 from "../assets/druppie webp/druppie4.webp";
-import image5 from "../assets/druppie webp/druppie5.webp";
+import image1 from "../assets/druppie/druppie1.webp";
+import image2 from "../assets/druppie/druppie2.webp";
+import image3 from "../assets/druppie/druppie3.webp";
+import image4 from "../assets/druppie/druppie4.webp";
+import image5 from "../assets/druppie/druppie5.webp";
 import ConfettiExplosion from "react-confetti-explosion";
 
 const images = [image4, image3, image2, image1, image5];
