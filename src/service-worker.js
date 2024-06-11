@@ -141,29 +141,3 @@ const getAllDataFromIndexedDB = async () => {
     };
   });
 };
-
-// Listen for push events
-self.addEventListener("push", (event) => {
-  const data = event.data ? event.data.json() : {};
-  const title = data.title || "New Notification";
-  const options = {
-    body: data.body || "You have a new message.",
-    icon: data.icon || "/icons/icon-192x192.png",
-    badge: data.badge || "/icons/icon-192x192.png",
-  };
-
-  event.waitUntil(self.registration.showNotification(title, options));
-});
-
-// Listen for notification click events
-self.addEventListener("notificationclick", (event) => {
-  event.notification.close();
-  event.waitUntil(
-    clients.matchAll({ type: "window" }).then((clientList) => {
-      if (clientList.length > 0) {
-        return clientList[0].focus();
-      }
-      return clients.openWindow("/");
-    })
-  );
-});
