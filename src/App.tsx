@@ -1,8 +1,11 @@
-import { useEffect, useState } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import "./App.css";
-import FluidContainerComponent from "./components/FluidContainerComponent";
 import "./index.css";
+import { useEffect, useState } from "react";
+import FluidContainerComponent from "./components/FluidContainerComponent";
 import Containers from "./assets/data/containers.json";
+import Notifications from "./assets/data/notifications.json";
 import HeaderComponent from "./components/HeaderComponent";
 import MascotComponent from "./components/MascotComponent";
 
@@ -12,49 +15,61 @@ type TContainer = {
   volume: number;
 };
 
+type TNotification = {
+  id: number;
+  title: string;
+  body: string;
+  icon: string;
+  badge: string;
+};
+
 function App() {
-  const [containers, setContainers] = useState<TContainer[]>([]);
+  const [containers, setContainers] = useState<TContainer[]>(Containers);
+  const [notifications, setNotifications] = useState<TNotification[]>(Notifications);
+
   const [totalFluidBalance, setTotalFluidBalance] = useState<number>(0);
   const [fluidLimit, setFluidLimit] = useState<number>(2000);
+
   const [isConfettiActive, setIsConfettiActive] = useState(false);
 
-  // Example usage
-  const options = {
-    body: "Je hebt je drink-doel bereikt! Let op: je kunt vandaag niet meer drinken",
-    icon: "./icons/icon-192x192.png",
-    badge: "./icons/icon-192x192.png",
-    data: {
-      url: "https://your-url.com",
-    },
-  };
-
-  const showLocalNotification = (title: string, options: object) => {
-    if (navigator.serviceWorker) {
-      navigator.serviceWorker.getRegistration().then((registration) => {
-        if (registration) {
-          registration.showNotification(title, options);
-        }
-      });
-    } else {
-      new Notification(title, options);
-    }
-  };
-
   useEffect(() => {
-    loadContainersJson();
     askNotificationPermission();
+    document.addEventListener("keypress", (e) => handleKeyPress(e));
   }, []);
 
   useEffect(() => {
     if (totalFluidBalance >= fluidLimit) {
       setIsConfettiActive(true);
-      showLocalNotification("Goed bezig!", options);
+      showLocalNotification(notifications[0]);
     }
   }, [totalFluidBalance, fluidLimit]);
 
-  const loadContainersJson = () => {
-    setContainers(Containers);
+  // Function to handle keypress events
+  const handleKeyPress = (event: any) => {
+    const key = event.key;
+
+    switch (key) {
+      case "1":
+        showLocalNotification(notifications[0]);
+        break;
+      case "2":
+        showLocalNotification(notifications[1]);
+        break;
+      case "3":
+        showLocalNotification(notifications[2]);
+        break;
+      case "4":
+        showLocalNotification(notifications[3]);
+        break;
+      case "5":
+        showLocalNotification(notifications[4]);
+        break;
+      default:
+        // Handle other keys if necessary
+        break;
+    }
   };
+
   const askNotificationPermission = () => {
     if ("Notification" in window && navigator.serviceWorker) {
       Notification.requestPermission().then((permission) => {
@@ -64,6 +79,18 @@ function App() {
           console.log("Notification permission denied.");
         }
       });
+    }
+  };
+
+  const showLocalNotification = (notification: TNotification) => {
+    if (navigator.serviceWorker) {
+      navigator.serviceWorker.getRegistration().then((registration) => {
+        if (registration) {
+          registration.showNotification(notification.title, notification);
+        }
+      });
+    } else {
+      new Notification(notification.title, notification);
     }
   };
 
