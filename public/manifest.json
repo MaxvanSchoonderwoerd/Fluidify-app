@@ -8,22 +8,22 @@
   "theme_color": "#86d2ed",
   "icons": [
     {
-      "src": "../src/assets/icons/favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "src": "/icons/favicon.ico",
+      "sizes": "48x48",
       "type": "image/x-icon"
     },
     {
-      "src": "../src/assets/icons/apple-touch-icon.png",
+      "src": "/icons/apple-touch-icon.png",
       "sizes": "180x180",
       "type": "image/png"
     },
     {
-      "src": "../src/assets/icons/android-chrome-192x192.png",
+      "src": "/icons/android-chrome-192x192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "../src/assets/icons/android-chrome-512x512.png",
+      "src": "/icons/android-chrome-512x512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
