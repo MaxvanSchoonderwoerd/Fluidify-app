@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "body": "Je hebt je drink-doel bereikt! Let op: je kunt vandaag niet meer drinken",
+    "icon": "./icons/icon-192x192.png",
+    "badge": "./icons/icon-192x192.png",
+    "data": {
+      "url": "https://your-url.com"
+    }
+  },
+  {
+    "id": 2,
+    "body": "Ik begrijp dat het soms lastig kan zijn om het drinkplan te volgen. Laten we samen kijken hoe we het makkelijker voor je kunnen maken.",
+    "icon": "./icons/icon-192x192.png",
+    "badge": "./icons/icon-192x192.png",
+    "data": {
+      "url": "https://your-url.com"
+    }
+  },
+  {
+    "id": 3,
+    "body": "Te snel drinken kan ervoor zorgen dat je je ongemakkelijk voelt en het water niet optimaal wordt opgenomen. Langzamer drinken is effectiever.",
+    "icon": "./icons/icon-192x192.png",
+    "badge": "./icons/icon-192x192.png",
+    "data": {
+      "url": "https://your-url.com"
+    }
+  },
+  {
+    "id": 4,
+    "body": "Genoeg water drinken is essentieel voor je herstel en algemene gezondheid. Te weinig water kan je herstel vertragen en je energie beïnvloeden.",
+    "icon": "./icons/icon-192x192.png",
+    "badge": "./icons/icon-192x192.png",
+    "data": {
+      "url": "https://your-url.com"
+    }
+  },
+  {
+    "id": 5,
+    "body": "Wist je dat regelmatig kleine hoeveelheden drinken kan helpen om je energieniveau constant te houden en uitdroging te voorkomen?",
+    "icon": "./icons/icon-192x192.png",
+    "badge": "./icons/icon-192x192.png",
+    "data": {
+      "url": "https://your-url.com"
+    }
+  }
+]
