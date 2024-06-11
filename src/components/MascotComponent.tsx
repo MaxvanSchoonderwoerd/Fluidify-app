@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import image1 from "../assets/druppie-04.svg";
-import image2 from "../assets/druppie-03.svg";
-import image3 from "../assets/druppie-02.svg";
-import image4 from "../assets/druppie-01.svg";
+import image1 from "../assets/druppie/druppie-04.svg";
+import image2 from "../assets/druppie/druppie-03.svg";
+import image3 from "../assets/druppie/druppie-02.svg";
+import image4 from "../assets/druppie/druppie-01.svg";
+import image5 from "../assets/druppie/druppie-05.svg";
 import ConfettiExplosion from "react-confetti-explosion";
 
-const images = [image1, image2, image3, image4];
+const images = [image1, image2, image3, image4, image5];
 
 type TMascotComponentProps = {
   totalFluidBalance: number;
