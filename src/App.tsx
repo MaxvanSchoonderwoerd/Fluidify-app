@@ -2,10 +2,9 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import FluidContainerComponent from "./components/FluidContainerComponent";
 import "./index.css";
-import Containers from "./assets/containers.json";
+import Containers from "./assets/data/containers.json";
 import HeaderComponent from "./components/HeaderComponent";
 import MascotComponent from "./components/MascotComponent";
-import ConfettiExplosion from "react-confetti-explosion";
 
 type TContainer = {
   id: number;
@@ -19,18 +18,53 @@ function App() {
   const [fluidLimit, setFluidLimit] = useState<number>(2000);
   const [isConfettiActive, setIsConfettiActive] = useState(false);
 
+  // Example usage
+  const options = {
+    body: "Je hebt je drink-doel bereikt! Let op: je kunt vandaag niet meer drinken",
+    icon: "./icons/icon-192x192.png",
+    badge: "./icons/icon-192x192.png",
+    data: {
+      url: "https://your-url.com",
+    },
+  };
+
+  const showLocalNotification = (title: string, options: object) => {
+    if (navigator.serviceWorker) {
+      navigator.serviceWorker.getRegistration().then((registration) => {
+        if (registration) {
+          registration.showNotification(title, options);
+        }
+      });
+    } else {
+      new Notification(title, options);
+    }
+  };
+
   useEffect(() => {
     loadContainersJson();
+    askNotificationPermission();
   }, []);
 
   useEffect(() => {
     if (totalFluidBalance >= fluidLimit) {
       setIsConfettiActive(true);
+      showLocalNotification("Goed bezig!", options);
     }
   }, [totalFluidBalance, fluidLimit]);
 
   const loadContainersJson = () => {
     setContainers(Containers);
+  };
+  const askNotificationPermission = () => {
+    if ("Notification" in window && navigator.serviceWorker) {
+      Notification.requestPermission().then((permission) => {
+        if (permission === "granted") {
+          console.log("Notification permission granted.");
+        } else {
+          console.log("Notification permission denied.");
+        }
+      });
+    }
   };
 
   const addFluid = (volume: number) => {
