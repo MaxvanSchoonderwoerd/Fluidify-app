@@ -1,5 +1,9 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-restricted-globals */
+import { precacheAndRoute } from "workbox-precaching";
+
+precacheAndRoute(self.__WB_MANIFEST);
+
 const API_URL = "https://cmgt.hr.nl/api/projects";
 const CACHE_NAME = "fluidify-pwa-cache";
 const DB_NAME = "fluidify-pwa-indexedDB";
@@ -17,7 +21,7 @@ self.addEventListener("install", (event) => {
   );
 });
 
-self.addEventListener("active", (event) => {
+self.addEventListener("activate", (event) => {
   event.waitUntil(self.clients.claim());
 });
 
