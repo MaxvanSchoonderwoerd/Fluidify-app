@@ -1,24 +1,29 @@
 {
   "name": "Fluidify",
   "short_name": "Fluidify",
-  "description": "keep track of your fluid balance with the help of druppie the droplet",
+  "description": "Keep track of your fluid balance with the help of druppie",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0c2074",
   "theme_color": "#86d2ed",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "../src/assets/icons/favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "../src/assets/logo192.png",
+      "src": "../src/assets/icons/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "../src/assets/icons/android-chrome-192x192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "../src/assets/logo512.png",
+      "src": "../src/assets/icons/android-chrome-512x512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
