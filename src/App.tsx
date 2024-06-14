@@ -13,6 +13,7 @@ type TContainer = {
   id: number;
   name: string;
   volume: number;
+  icon: string;
 };
 
 type TNotification = {
@@ -117,7 +118,7 @@ function App() {
         <div className="w-full">
           <div className="grid sm:grid-cols-1 md:grid-cols-2 place-items-center">
             {containers.map((container: TContainer) => (
-              <FluidContainerComponent key={container.id} id={container.id} name={container.name} volume={container.volume} addFluid={addFluid} removeFluid={removeFluid} />
+              <FluidContainerComponent key={container.id} id={container.id} name={container.name} icon={container.icon} volume={container.volume} addFluid={addFluid} removeFluid={removeFluid} />
             ))}
           </div>
         </div>

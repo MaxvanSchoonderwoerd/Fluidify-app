@@ -2,51 +2,61 @@
   {
     "id": 1,
     "name": "Glas water",
+    "icon": "🥛",
     "volume": 250
   },
   {
     "id": 2,
     "name": "Fles water",
+    "icon": "💧",
     "volume": 1000
   },
   {
     "id": 3,
     "name": "Blikje cola",
+    "icon": "🥤",
     "volume": 330
   },
   {
     "id": 4,
     "name": "Klein glas water",
+    "icon": "🤏🥛",
     "volume": 150
   },
   {
     "id": 5,
     "name": "Groter glas water",
+    "icon": "🦣🥛",
     "volume": 350
   },
   {
     "id": 6,
     "name": "Koffie kopje",
+    "icon": "🤏☕",
     "volume": 300
   },
   {
     "id": 7,
     "name": "Groter koffie kopje",
+    "icon": "🦣☕",
     "volume": 450
   },
   {
     "id": 8,
     "name": "Pakje sap",
+    "icon": "🧃",
     "volume": 200
   },
   {
     "id": 9,
     "name": "Thee pot",
+    "icon": "🫖",
     "volume": 800
   },
   {
     "id": 10,
     "name": "Thermos",
+    "icon": "🌡️🫖",
     "volume": 750
   }
 ]

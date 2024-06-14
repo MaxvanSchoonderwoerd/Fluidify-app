@@ -4,6 +4,7 @@ import "../index.css";
 type TFluidContainerProps = {
   id: number;
   name: string;
+  icon: string;
   volume: number;
   removeFluid: Function;
   addFluid: Function;
@@ -36,6 +37,7 @@ export default function FluidContainerComponent(props: TFluidContainerProps) {
 
       {/* container name and volume indicators */}
       <p className="font-medium text-white">
+        <p className="text-white">{props.icon}</p>
         {props.name} ({props.volume}ml)
       </p>
 
