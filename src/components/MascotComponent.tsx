@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import image1 from "../assets/druppie/druppie1.webp";
-import image2 from "../assets/druppie/druppie2.webp";
-import image3 from "../assets/druppie/druppie3.webp";
-import image4 from "../assets/druppie/druppie4.webp";
-import image5 from "../assets/druppie/druppie5.webp";
+import image1 from "../assets/druppie/Druppie1.png";
+import image2 from "../assets/druppie/Druppie2.png";
+import image3 from "../assets/druppie/Druppie3.png";
+import image4 from "../assets/druppie/Druppie4.png";
+import image5 from "../assets/druppie/Druppie5.png";
 import ConfettiExplosion from "react-confetti-explosion";
 
-const images = [image4, image3, image2, image1, image5];
+const images = [image1, image2, image3, image4, image5];
 
 type TMascotComponentProps = {
   totalFluidBalance: number;
@@ -17,7 +17,8 @@ type TMascotComponentProps = {
 export default function MascotComponent(props: TMascotComponentProps) {
   const [mascotImage, setMascotImage] = useState<string>();
   const switchMascotImage = () => {
-    const part = props.fluidLimit / images.length;
+    const part = props.fluidLimit / (images.length - 1);
+    console.log(part);
     images.forEach((image, i) => {
       if (props.totalFluidBalance >= part * i && props.totalFluidBalance < part * (i + 1)) {
         setMascotImage(image);

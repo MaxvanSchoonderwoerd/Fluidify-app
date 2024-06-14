@@ -35,6 +35,10 @@ function App() {
   useEffect(() => {
     askNotificationPermission();
     document.addEventListener("keypress", (e) => handleKeyPress(e));
+
+    return () => {
+      document.removeEventListener("keypress", (e) => handleKeyPress(e));
+    };
   }, []);
 
   useEffect(() => {
