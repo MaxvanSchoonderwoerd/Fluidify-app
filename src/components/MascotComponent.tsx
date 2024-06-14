@@ -18,7 +18,6 @@ export default function MascotComponent(props: TMascotComponentProps) {
   const [mascotImage, setMascotImage] = useState<string>();
   const switchMascotImage = () => {
     const part = props.fluidLimit / (images.length - 1);
-    console.log(part);
     images.forEach((image, i) => {
       if (props.totalFluidBalance >= part * i && props.totalFluidBalance < part * (i + 1)) {
         setMascotImage(image);
