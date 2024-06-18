@@ -2,36 +2,26 @@
   {
     "id": 1,
     "title": "Goed bezig!",
-    "body": "Je hebt je drink-doel bereikt! Let op: je kunt vandaag niet meer drinken",
-    "icon": "./icons/icon-192x192.png",
-    "badge": "./icons/icon-192x192.png"
+    "body": "Je hebt je drink-doel bereikt! Let op: je kunt vandaag niet meer drinken"
   },
   {
     "id": 2,
     "title": "Reminder:",
-    "body": "Ik begrijp dat het soms lastig kan zijn om het drinkplan te volgen. Laten we samen kijken hoe we het makkelijker voor je kunnen maken.",
-    "icon": "./icons/icon-192x192.png",
-    "badge": "./icons/icon-192x192.png"
+    "body": "Ik begrijp dat het soms lastig kan zijn om het drinkplan te volgen. Laten we samen kijken hoe we het makkelijker voor je kunnen maken."
   },
   {
     "id": 3,
     "title": "Drink niet te snel!",
-    "body": "Te snel drinken kan ervoor zorgen dat je je ongemakkelijk voelt en het water niet optimaal wordt opgenomen. Langzamer drinken is effectiever.",
-    "icon": "./icons/icon-192x192.png",
-    "badge": "./icons/icon-192x192.png"
+    "body": "Te snel drinken kan ervoor zorgen dat je je ongemakkelijk voelt en het water niet optimaal wordt opgenomen. Langzamer drinken is effectiever."
   },
   {
     "id": 4,
     "title": "Drink je wel genoeg?",
-    "body": "Genoeg water drinken is essentieel voor je herstel en algemene gezondheid. Te weinig water kan je herstel vertragen en je energie beïnvloeden.",
-    "icon": "./icons/icon-192x192.png",
-    "badge": "./icons/icon-192x192.png"
+    "body": "Genoeg water drinken is essentieel voor je herstel en algemene gezondheid. Te weinig water kan je herstel vertragen en je energie beïnvloeden."
   },
   {
     "id": 5,
     "title": "Drink niet te snel",
-    "body": "Wist je dat regelmatig kleine hoeveelheden drinken kan helpen om je energieniveau constant te houden en uitdroging te voorkomen?",
-    "icon": "./icons/icon-192x192.png",
-    "badge": "./icons/icon-192x192.png"
+    "body": "Wist je dat regelmatig kleine hoeveelheden drinken kan helpen om je energieniveau constant te houden en uitdroging te voorkomen?"
   }
 ]
