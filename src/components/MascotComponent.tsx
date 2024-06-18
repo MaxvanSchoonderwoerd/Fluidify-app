@@ -14,6 +14,7 @@ type TMascotComponentProps = {
   totalFluidBalance: number;
   fluidLimit: number;
   isConfettiActive: boolean;
+  showMessages: boolean;
   messages: TMessages[];
   messageIndex: number;
 };
@@ -46,7 +47,7 @@ export default function MascotComponent(props: TMascotComponentProps) {
       {props.isConfettiActive && <ConfettiExplosion duration={2800} />}
       <div className="flex">
         <img className="max-h-64 max-w-64" src={mascotImage} alt="mascot" />
-        <ComicTextBoxComponent messages={props.messages} messageIndex={props.messageIndex} />
+        {props.showMessages && <ComicTextBoxComponent messages={props.messages} messageIndex={props.messageIndex} />}
       </div>
     </div>
   );
