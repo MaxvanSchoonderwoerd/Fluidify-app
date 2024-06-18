@@ -155,6 +155,7 @@ function App() {
           </div>
         </div>
       </div>
+      <p className="text-gray-500">Gebruik toetsen 6 t/m 0 om druppie te laten praten</p>
     </div>
   );
 }
