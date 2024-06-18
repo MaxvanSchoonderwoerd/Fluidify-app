@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useEffect, useState, useCallback } from "react";
 import "./App.css";
 import "./index.css";
