@@ -49,7 +49,7 @@ function App() {
 
     setTimeout(() => {
       setShowMessages(false);
-    }, 4000); // 4000 milliseconds = 4 seconds
+    }, 6000); // 4000 milliseconds = 4 seconds
   };
 
   // Function to handle keypress events
