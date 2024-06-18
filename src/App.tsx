@@ -17,14 +17,13 @@ export type TMessages = {
   id: number;
   title: string;
   body: string;
-  icon: string;
-  badge: string;
 };
 
 function App() {
   const [containers, setContainers] = useState<TContainer[]>(Containers);
   const [messages, setMessages] = useState<TMessages[]>(Messages);
   const [messageIndex, setMessageIndex] = useState(0);
+  const [showMessages, setShowMessages] = useState(false);
 
   const [totalFluidBalance, setTotalFluidBalance] = useState<number>(0);
   const [fluidLimit, setFluidLimit] = useState<number>(2000);
@@ -41,6 +40,15 @@ function App() {
       showLocalNotification(messages[0]);
     }
   }, [totalFluidBalance, fluidLimit, messages]);
+
+  const showMessage = (index: number) => {
+    setMessageIndex(index);
+    setShowMessages(true);
+
+    setTimeout(() => {
+      setShowMessages(false);
+    }, 4000); // 4000 milliseconds = 4 seconds
+  };
 
   // Function to handle keypress events
   const handleKeyPress = useCallback(
@@ -64,19 +72,19 @@ function App() {
           showLocalNotification(messages[4]);
           break;
         case "6":
-          setMessageIndex(0);
+          showMessage(0);
           break;
         case "7":
-          setMessageIndex(1);
+          showMessage(1);
           break;
         case "8":
-          setMessageIndex(2);
+          showMessage(2);
           break;
         case "9":
-          setMessageIndex(3);
+          showMessage(3);
           break;
         case "0":
-          setMessageIndex(4);
+          showMessage(4);
           break;
         default:
           // Handle other keys if necessary
@@ -136,7 +144,7 @@ function App() {
       <div className="w-full grid place-items-center">
         <div className="w-full">
           <div className="w-full relative">
-            <MascotComponent totalFluidBalance={totalFluidBalance} fluidLimit={fluidLimit} isConfettiActive={isConfettiActive} messages={messages} messageIndex={messageIndex} />
+            <MascotComponent totalFluidBalance={totalFluidBalance} fluidLimit={fluidLimit} isConfettiActive={isConfettiActive} showMessages={showMessages} messages={messages} messageIndex={messageIndex} />
           </div>
           <div className="grid sm:grid-cols-1 md:grid-cols-4 place-items-center mt-32">
             {containers.map((container: TContainer) => (
