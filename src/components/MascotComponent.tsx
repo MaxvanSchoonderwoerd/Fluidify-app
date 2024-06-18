@@ -5,6 +5,8 @@ import image3 from "../assets/druppie/Druppie3.png";
 import image4 from "../assets/druppie/Druppie4.png";
 import image5 from "../assets/druppie/Druppie5.png";
 import ConfettiExplosion from "react-confetti-explosion";
+import ComicTextBoxComponent from "./ComicTextBoxComponent";
+import { TMessages } from "../App";
 
 const images = [image1, image2, image3, image4, image5];
 
@@ -12,6 +14,8 @@ type TMascotComponentProps = {
   totalFluidBalance: number;
   fluidLimit: number;
   isConfettiActive: boolean;
+  messages: TMessages[];
+  messageIndex: number;
 };
 
 export default function MascotComponent(props: TMascotComponentProps) {
@@ -40,7 +44,10 @@ export default function MascotComponent(props: TMascotComponentProps) {
         Balans: {props.totalFluidBalance}ml / {props.fluidLimit}ml
       </h1>
       {props.isConfettiActive && <ConfettiExplosion duration={2800} />}
-      <img className="max-h-64 max-w-64" src={mascotImage} alt="mascot" />
+      <div className="flex">
+        <img className="max-h-64 max-w-64" src={mascotImage} alt="mascot" />
+        <ComicTextBoxComponent messages={props.messages} messageIndex={props.messageIndex} />
+      </div>
     </div>
   );
 }
