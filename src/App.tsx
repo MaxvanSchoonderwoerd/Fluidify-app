@@ -38,6 +38,7 @@ function App() {
   useEffect(() => {
     if (totalFluidBalance >= fluidLimit) {
       setIsConfettiActive(true);
+      showMessage(0);
       showLocalNotification(messages[0]);
     }
   }, [totalFluidBalance, fluidLimit, messages]);
