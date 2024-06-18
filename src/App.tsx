@@ -1,11 +1,9 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable @typescript-eslint/no-unused-vars */
+import React, { useEffect, useState, useCallback } from "react";
 import "./App.css";
 import "./index.css";
-import { useEffect, useState } from "react";
 import FluidContainerComponent from "./components/FluidContainerComponent";
 import Containers from "./assets/data/containers.json";
-import Notifications from "./assets/data/notifications.json";
+import Messages from "./assets/data/messages.json";
 import HeaderComponent from "./components/HeaderComponent";
 import MascotComponent from "./components/MascotComponent";
 
@@ -15,7 +13,7 @@ type TContainer = {
   volume: number;
 };
 
-type TNotification = {
+export type TMessages = {
   id: number;
   title: string;
   body: string;
@@ -25,7 +23,8 @@ type TNotification = {
 
 function App() {
   const [containers, setContainers] = useState<TContainer[]>(Containers);
-  const [notifications, setNotifications] = useState<TNotification[]>(Notifications);
+  const [messages, setMessages] = useState<TMessages[]>(Messages);
+  const [messageIndex, setMessageIndex] = useState(0);
 
   const [totalFluidBalance, setTotalFluidBalance] = useState<number>(0);
   const [fluidLimit, setFluidLimit] = useState<number>(2000);
@@ -34,45 +33,66 @@ function App() {
 
   useEffect(() => {
     askNotificationPermission();
-    document.addEventListener("keypress", (e) => handleKeyPress(e));
-
-    return () => {
-      document.removeEventListener("keypress", (e) => handleKeyPress(e));
-    };
   }, []);
 
   useEffect(() => {
     if (totalFluidBalance >= fluidLimit) {
       setIsConfettiActive(true);
-      showLocalNotification(notifications[0]);
+      showLocalNotification(messages[0]);
     }
-  }, [totalFluidBalance, fluidLimit]);
+  }, [totalFluidBalance, fluidLimit, messages]);
 
   // Function to handle keypress events
-  const handleKeyPress = (event: any) => {
-    const key = event.key;
+  const handleKeyPress = useCallback(
+    (event: KeyboardEvent) => {
+      const key = event.key;
 
-    switch (key) {
-      case "1":
-        showLocalNotification(notifications[0]);
-        break;
-      case "2":
-        showLocalNotification(notifications[1]);
-        break;
-      case "3":
-        showLocalNotification(notifications[2]);
-        break;
-      case "4":
-        showLocalNotification(notifications[3]);
-        break;
-      case "5":
-        showLocalNotification(notifications[4]);
-        break;
-      default:
-        // Handle other keys if necessary
-        break;
-    }
-  };
+      switch (key) {
+        case "1":
+          showLocalNotification(messages[0]);
+          break;
+        case "2":
+          showLocalNotification(messages[1]);
+          break;
+        case "3":
+          showLocalNotification(messages[2]);
+          break;
+        case "4":
+          showLocalNotification(messages[3]);
+          break;
+        case "5":
+          showLocalNotification(messages[4]);
+          break;
+        case "6":
+          setMessageIndex(0);
+          break;
+        case "7":
+          setMessageIndex(1);
+          break;
+        case "8":
+          setMessageIndex(2);
+          break;
+        case "9":
+          setMessageIndex(3);
+          break;
+        case "0":
+          setMessageIndex(4);
+          break;
+        default:
+          // Handle other keys if necessary
+          break;
+      }
+    },
+    [messages]
+  );
+
+  useEffect(() => {
+    document.addEventListener("keypress", handleKeyPress);
+
+    return () => {
+      document.removeEventListener("keypress", handleKeyPress);
+    };
+  }, [handleKeyPress]);
 
   const askNotificationPermission = () => {
     if ("Notification" in window && navigator.serviceWorker) {
@@ -86,7 +106,7 @@ function App() {
     }
   };
 
-  const showLocalNotification = (notification: TNotification) => {
+  const showLocalNotification = (notification: TMessages) => {
     if (navigator.serviceWorker) {
       navigator.serviceWorker.getRegistration().then((registration) => {
         if (registration) {
@@ -115,8 +135,8 @@ function App() {
       <HeaderComponent />
       <div className="w-full grid place-items-center">
         <div className="w-full">
-          <div className="w-full">
-            <MascotComponent totalFluidBalance={totalFluidBalance} fluidLimit={fluidLimit} isConfettiActive={isConfettiActive} />
+          <div className="w-full relative">
+            <MascotComponent totalFluidBalance={totalFluidBalance} fluidLimit={fluidLimit} isConfettiActive={isConfettiActive} messages={messages} messageIndex={messageIndex} />
           </div>
           <div className="grid sm:grid-cols-1 md:grid-cols-4 place-items-center mt-32">
             {containers.map((container: TContainer) => (
