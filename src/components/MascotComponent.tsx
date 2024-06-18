@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import image1 from "../assets/druppie/Druppie1.png";
 import image2 from "../assets/druppie/Druppie2.png";
@@ -21,13 +22,14 @@ type TMascotComponentProps = {
 
 export default function MascotComponent(props: TMascotComponentProps) {
   const [mascotImage, setMascotImage] = useState<string>();
+  const [showMessageBox, setShowMessageBox] = useState<boolean>(false);
+
   const switchMascotImage = () => {
     const part = props.fluidLimit / (images.length - 1);
     images.forEach((image, i) => {
       if (props.totalFluidBalance >= part * i && props.totalFluidBalance < part * (i + 1)) {
         setMascotImage(image);
       }
-      //shitty fix, please change this
       if (props.totalFluidBalance >= props.fluidLimit) {
         setMascotImage(images[images.length - 1]);
       }
@@ -36,8 +38,16 @@ export default function MascotComponent(props: TMascotComponentProps) {
 
   useEffect(() => {
     switchMascotImage();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.totalFluidBalance]);
+
+  useEffect(() => {
+    if (props.showMessages) {
+      setShowMessageBox(true);
+    } else {
+      const timeoutId = setTimeout(() => setShowMessageBox(false), 500); // Match the animation duration
+      return () => clearTimeout(timeoutId);
+    }
+  }, [props.showMessages]);
 
   return (
     <div className="flex items-center justify-center flex-col">
@@ -47,7 +57,10 @@ export default function MascotComponent(props: TMascotComponentProps) {
       {props.isConfettiActive && <ConfettiExplosion duration={2800} />}
       <div className="flex">
         <img className="max-h-64 max-w-64" src={mascotImage} alt="mascot" />
-        {props.showMessages && <ComicTextBoxComponent messages={props.messages} messageIndex={props.messageIndex} />}
+
+        <div className={`transition-opacity duration-500 ${props.showMessages ? "opacity-100" : "opacity-0"}`}>
+          <ComicTextBoxComponent messages={props.messages} messageIndex={props.messageIndex} />
+        </div>
       </div>
     </div>
   );
