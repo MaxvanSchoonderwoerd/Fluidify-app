@@ -60,7 +60,7 @@ export default function MascotComponent(props: TMascotComponentProps) {
         <img className="max-h-64 max-w-64" src={mascotImage} alt="mascot" />
 
         <div className={`transition-all duration-500 opacity-0  ${props.showMessages ? "animate-fadeInUp opacity-100" : "animate-fadeOutDown opacity-0"}`}>
-          props.showMessages ? <ComicTextBoxComponent messages={props.messages} messageIndex={props.messageIndex} />
+          <ComicTextBoxComponent messages={props.messages} messageIndex={props.messageIndex} />
         </div>
       </div>
     </div>
