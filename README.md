@@ -1,5 +1,5 @@
 # Fluidify
-
+![Screenshot of fluidify app](src/assets/screenshot%20prototype%20fluidify.png)
 ## Description
 Keep track of your fluid balance with help from Druppie. Submit your daily fluid intake and let Druppie react on it by giving tips. 
 
