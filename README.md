@@ -15,8 +15,9 @@ Keep track of your fluid balance with help from Druppie. Submit your daily fluid
 git clone https://github.com/MaxvanSchoonderwoerd/Fluidify-app.git
 ```
 Navigate to the project directory:
-sh
+```sh
 cd Fluidify-app
+```
 Install dependencies:
 ```sh
 npm install
