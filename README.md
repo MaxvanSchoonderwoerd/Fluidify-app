@@ -35,17 +35,17 @@ npm run start
 ```
 1. You can add an subtract fluid from the fluid balance by pressing the buttons on the various containers.
 2. You can edit the container list by editing ```src/assets/data/containers.json```
-3. Druppie, our mascot, will say things depending on the fluid balance
+3. Druppie, our mascot, will say things depending on the fluid balance.
 4. You can edit the mascot messages by editing ```src/assets/data/messages.json```
-5. pressing the keys from 1 - 5 will trigger a notification with different messages
-6. pressing the keys 6 - 0 will display messages next to druppie in a text box
+5. Pressing the keys from 1 - 5 will trigger a notification with different messages.
+6. Pressing the keys 6 - 0 will display messages next to druppie in a text box.
 
 
 ## Features
-- This is a PWA, meaning it can be installed on mobile en desktop devices
-- Adding a subtracting fluid from the fluid balance
-- Dynamic mascot that changes depending on the fluid balance
-- Tips from mascot
+- This is a PWA, meaning it can be installed on mobile and desktop devices.
+- Adding and subtracting fluid from the fluid balance.
+- Dynamic mascot that changes depending on the fluid balance.
+- Tips from mascot.
 
 ## Contact
 Your Max van Schoonderwoerd - 1007212@hr.nl
